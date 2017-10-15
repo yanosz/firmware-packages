@@ -1,6 +1,7 @@
 *.[ao]
 *.so
 *.dylib
-\.*
 \#*
 *~
+target/**
+tmp/**
