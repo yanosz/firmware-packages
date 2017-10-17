@@ -30,9 +30,8 @@ target/.config: target
 
 world: target/.config
 	$(MAKE) -C target world CONFIG_TARGET_ARCH_PACKAGES=all CONFIG_SIGNED_PACKAGES=
-	$(MAKE) -C target package/index  CONFIG_TARGET_ARCH_PACKAGES=all CONFIG_SIGNED_PACKAGES=
 	$(RM) -rf target/bin/packages/all/base/
-
+	tar -C target/bin/packages/all -czf target/opkg_feed.tar.gz .
 
 
 

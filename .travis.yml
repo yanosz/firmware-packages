@@ -8,6 +8,13 @@ deploy:
   api_key:
     secure: x9jJrZfvYxsIbKv8VwVOnBkpm35S6UFZpk9t63ZLMtmmKtBMD8iOUk1JfzBfE6QqfVSavD1m6Nxb/jBuuRB7pUEUfXUfv+TU++B4292ry2KJ/u5BdHZPDVeLv8iNiCTeyPh1FGqoWI0UMb9bhuCLc4WWD4bEqtscmdP96efIrHreuYkPdrCgQhjXj20HEktm7NBHywNVLhsMLaBAYkudFKaVaXHiT9NdTNZZZAPyQhcwviIHiwPWg0DYqgxNsTHwosHvsbriNY8MLqodPKZj2Y+Wkbek1x7+u28akQRZvtXDFeutoRKnc/1NivNb1wyV9tv3tQ9aHka0jqry6WzVLCm1QQsV4XbPFNf/DH+3PAhZDm1Jtj6IVG5rU8dbBzpPap47ZYMnxCslqSKbX1lGduGJSvYRukwIwPsWzHhn/PgbpzkgUff06vE4Kq6PO0oooaSRoeS3jMR9Kb7uMIjZ0AEVj8cgCRblp8jXldo90g7R3sEnZnjkedSff2q51iZMk1NAZZDCng/IrX4oxG5wac5y34ETemVxLFkTYAAiAlgD6yWNlD1otGk80GANr0WHL+2OQl3yFYHskitR9TvINFTTmsI3+Lv5M+o0GdSPHs4euvuDPgB6SvawB+nYFJXUjjXkQ4GZ+8Ddo/i9zck1QJtjoVvIMEOSwwGNt39i7Sg=
   file_glob: true
-  file: target/bin/packages/all/berlin_utils/*.ipk
+  file:
+  - target/bin/packages/all/berlin_utils/*.ipk
+  - target/opkg_feed.tar.gz
   on:
     tags: true
+before_install:
+ - sudo apt-get -qq update
+ - sudo apt-get install -y lua5.1
+
+
